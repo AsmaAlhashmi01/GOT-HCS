@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "description": "GoT-HCS prompt templates for Graph-of-Thoughts candidate generation (N=4 per thought node).",
+    "reference": "Section III-E, Eq. 16 — each prompt emphasises a distinct clinical perspective to promote comprehensive coverage of salient information.",
+    "usage": "One prompt is selected per candidate generation pass. All four are cycled across the N=4 candidates produced per thought node per iteration."
+  },
+  "templates": {
+    "P1_problem_identification": {
+      "id": "P1",
+      "perspective": "Problem Identification",
+      "description": "Focuses the model on identifying the primary clinical problem, presenting diagnosis, and key findings that motivated admission.",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, identify and summarize the primary clinical problem, the presenting diagnosis, and the key findings that led to this admission. Be precise, use standard medical terminology, and avoid speculation beyond what is stated.\n\nClinical thought: {thought_text}\n\nProblem-focused summary:"
+    },
+    "P2_temporal_evolution": {
+      "id": "P2",
+      "perspective": "Temporal Evolution",
+      "description": "Focuses the model on the chronological progression of clinical events, interventions, and patient status changes over the hospital course.",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, describe the temporal evolution of the patient's condition. Capture the sequence of clinical events, how the patient's status changed over time, and any notable transitions in acuity or clinical trajectory. Preserve chronological ordering and use precise temporal language.\n\nClinical thought: {thought_text}\n\nTemporal evolution summary:"
+    },
+    "P3_therapeutic_interventions": {
+      "id": "P3",
+      "perspective": "Therapeutic Interventions",
+      "description": "Focuses the model on medications administered, procedures performed, and clinical management decisions with their rationale and outcomes.",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, summarize the therapeutic interventions undertaken, including medications administered, procedures performed, and clinical management decisions. Where documented, include the clinical rationale for each intervention and the observed patient response. Use standard pharmacological and procedural terminology.\n\nClinical thought: {thought_text}\n\nIntervention-focused summary:"
+    },
+    "P4_clinical_outcomes": {
+      "id": "P4",
+      "perspective": "Clinical Outcomes",
+      "description": "Focuses the model on the patient's response to treatment, resolution or persistence of problems, discharge status, and follow-up plan.",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, summarize the clinical outcomes documented. Include the patient's response to treatment, the resolution or persistence of identified problems, the patient's condition at the time of documentation, and any discharge instructions, pending results, or follow-up recommendations if present. Be factually grounded and clinically precise.\n\nClinical thought: {thought_text}\n\nOutcome-focused summary:"
+    }
+  }
+}
