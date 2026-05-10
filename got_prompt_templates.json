@@ -1,0 +1,27 @@
+{
+  "description": "GoT-HCS prompt templates for candidate summary generation in the Graph-of-Thoughts reasoning engine.",
+  "usage": "For each clinical thought node, all four templates are applied once per reasoning iteration to generate N=4 candidate summary fragments covering distinct clinical perspectives.",
+  "placeholder": "{thought_text} — replace with the extracted clinical thought text at runtime.",
+  "templates": [
+    {
+      "id": "P1",
+      "perspective": "Problem Identification",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, identify and summarize the primary clinical problem, the presenting diagnosis, and the key findings that led to this admission. Be precise, use standard medical terminology, and avoid speculation beyond what is stated.\n\nClinical thought: {thought_text}\n\nProblem-focused summary:"
+    },
+    {
+      "id": "P2",
+      "perspective": "Temporal Evolution",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, describe the temporal evolution of the patient's condition. Capture the sequence of clinical events, how the patient's status changed over time, and any notable transitions in acuity or clinical trajectory. Preserve chronological ordering and use precise temporal language.\n\nClinical thought: {thought_text}\n\nTemporal evolution summary:"
+    },
+    {
+      "id": "P3",
+      "perspective": "Therapeutic Interventions",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, summarize the therapeutic interventions undertaken, including medications administered, procedures performed, and clinical management decisions. Where documented, include the clinical rationale for each intervention and the observed patient response. Use standard pharmacological and procedural terminology.\n\nClinical thought: {thought_text}\n\nIntervention-focused summary:"
+    },
+    {
+      "id": "P4",
+      "perspective": "Clinical Outcomes",
+      "template": "You are a clinical documentation specialist. Given the following clinical thought extracted from a hospital note, summarize the clinical outcomes documented. Include the patient's response to treatment, the resolution or persistence of identified problems, the patient's condition at the time of documentation, and any discharge instructions, pending results, or follow-up recommendations if present. Be factually grounded and clinically precise.\n\nClinical thought: {thought_text}\n\nOutcome-focused summary:"
+    }
+  ]
+}
